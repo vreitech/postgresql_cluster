@@ -74,11 +74,11 @@ listen replicas
     bind {{ hostvars[inventory_hostname]['inventory_hostname'] }}:{{ haproxy_listen_port.replicas }}
 {% endif %}
     maxconn {{ haproxy_maxconn.replica }}
-{% if haproxy_divert_to_master is defined and haproxy_divert_to_master > 0 and haproxy_divery_to_master < 100 %}
+{% if haproxy_divert_to_master is defined and haproxy_divert_to_master > 0 and haproxy_divert_to_master < 100 %}
     acl divert_to_master rand(100) lt {{ haproxy_divert_to_master }}
 {% endif %}
     default_backend replicas_backend
-{% if haproxy_divert_to_master is defined and haproxy_divert_to_master > 0 and haproxy_divery_to_master < 100 %}
+{% if haproxy_divert_to_master is defined and haproxy_divert_to_master > 0 and haproxy_divert_to_master < 100 %}
     use_backend master_backend if divert_to_master
 {% endif %}
 
@@ -106,11 +106,11 @@ listen replicas_sync
     bind {{ hostvars[inventory_hostname]['inventory_hostname'] }}:{{ haproxy_listen_port.replicas_sync }}
 {% endif %}
     maxconn {{ haproxy_maxconn.replica }}
-{% if haproxy_divert_to_master is defined and haproxy_divert_to_master > 0 and haproxy_divery_to_master < 100 %}
+{% if haproxy_divert_to_master is defined and haproxy_divert_to_master > 0 and haproxy_divert_to_master < 100 %}
     acl divert_to_master rand(100) lt {{ haproxy_divert_to_master }}
 {% endif %}
     default_backend replicas_sync_backend
-{% if haproxy_divert_to_master is defined and haproxy_divert_to_master > 0 and haproxy_divery_to_master < 100 %}
+{% if haproxy_divert_to_master is defined and haproxy_divert_to_master > 0 and haproxy_divert_to_master < 100 %}
     use_backend master_backend if divert_to_master
 {% endif %}
 
@@ -138,10 +138,10 @@ listen replicas_async
     bind {{ hostvars[inventory_hostname]['inventory_hostname'] }}:{{ haproxy_listen_port.replicas_async }}
 {% endif %}
     maxconn {{ haproxy_maxconn.replica }}
-{% if haproxy_divert_to_master is defined and haproxy_divert_to_master > 0 and haproxy_divery_to_master < 100 %}
+{% if haproxy_divert_to_master is defined and haproxy_divert_to_master > 0 and haproxy_divert_to_master < 100 %}
     acl divert_to_master rand(100) lt {{ haproxy_divert_to_master }}
 {% endif %}
     default_backend replicas_async_backend
-{% if haproxy_divert_to_master is defined and haproxy_divert_to_master > 0 and haproxy_divery_to_master < 100 %}
+{% if haproxy_divert_to_master is defined and haproxy_divert_to_master > 0 and haproxy_divert_to_master < 100 %}
     use_backend master_backend if divert_to_master
 {% endif %}
